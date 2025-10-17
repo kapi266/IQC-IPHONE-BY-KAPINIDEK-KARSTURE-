@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapinidek - IQC iPhone</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #007aff, #5856d6);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo i {
+            font-size: 28px;
+            color: #007aff;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        nav {
+            background-color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1d1d1f;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #007aff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            color: #007aff;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: #007aff;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 0.8rem;
+        }
+
+        .inspection-process {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+        }
+
+        .process-step {
+            flex: 0 0 48%;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background-color: #007aff;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .device-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .device-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .device-card:hover {
+            transform: scale(1.03);
+        }
+
+        .device-img {
+            height: 150px;
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #888;
+        }
+
+        .device-info {
+            padding: 1rem;
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: #007aff;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056cc;
+        }
+
+        footer {
+            background-color: #1d1d1f;
+            color: #f5f5f7;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #f5f5f7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: #f5f5f7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #007aff;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+        }
+
+        @media (max-width: 768px) {
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-step {
+                flex: 0 0 100%;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <i>📱</i>
+            </div>
+            <div>
+                <h1>Kapinidek</h1>
+                <p class="tagline">Inspeksi Kualitas iPhone Terpercaya</p>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#services">Layanan</a></li>
+            <li><a href="#process">Proses Inspeksi</a></li>
+            <li><a href="#gallery">Galeri</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="home">
+            <h2>Selamat Datang di Kapinidek</h2>
+            <p>Kami adalah spesialis dalam inspeksi kualitas iPhone dengan pengalaman bertahun-tahun. Tim profesional kami menggunakan peralatan canggih untuk memastikan setiap iPhone yang kami periksa memenuhi standar kualitas tertinggi.</p>
+            <p>Dengan Kapinidek, Anda dapat yakin bahwa iPhone yang Anda beli atau jual telah melalui proses inspeksi menyeluruh untuk memastikan performa dan keasliannya.</p>
+        </section>
+
+        <section id="services">
+            <h2>Layanan Kami</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>Inspeksi Fisik</h3>
+                    <p>Pemeriksaan menyeluruh kondisi fisik iPhone termasuk layar, bodi, dan komponen eksternal lainnya.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Inspeksi Fungsional</h3>
+                    <p>Pengujian semua fungsi iPhone termasuk kamera, speaker, mikrofon, sensor, dan konektivitas.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔋</div>
+                    <h3>Pemeriksaan Baterai</h3>
+                    <p>Analisis kesehatan baterai dan kapasitas maksimum untuk memastikan performa optimal.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💧</div>
+                    <h3>Deteksi Kerusakan Air</h3>
+                    <p>Pemeriksaan indikator kerusakan air untuk memastikan iPhone bebas dari masalah kelembaban.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Laporan Detail</h3>
+                    <p>Penyediaan laporan komprehensif dengan foto dan penjelasan rinci kondisi iPhone.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✅</div>
+                    <h3>Sertifikasi Keaslian</h3>
+                    <p>Verifikasi keaslian komponen dan sertifikasi bahwa iPhone bebas dari modifikasi tidak resmi.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="process">
+            <h2>Proses Inspeksi</h2>
+            <p>Kami mengikuti proses inspeksi yang ketat dan terstruktur untuk memastikan setiap aspek iPhone diperiksa dengan teliti:</p>
+            
+            <div class="inspection-process">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h3>Pemeriksaan Visual</h3>
+                        <p>Inspeksi menyeluruh kondisi eksterior iPhone termasuk layar, bodi, dan port.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h3>Pengujian Fungsional</h3>
+                        <p>Menguji semua fitur dan fungsi iPhone untuk memastikan kinerja optimal.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h3>Diagnosis Perangkat Keras</h3>
+                        <p>Pemeriksaan komponen internal menggunakan alat diagnostik khusus.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div>
+                        <h3>Analisis Perangkat Lunak</h3>
+                        <p>Verifikasi versi iOS, pemeriksaan IMEI, dan analisis riwayat perangkat.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div>
+                        <h3>Pengujian Baterai</h3>
+                        <p>Pengukuran kesehatan baterai dan kapasitas pengisian daya.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <div>
+                        <h3>Penyusunan Laporan</h3>
+                        <p>Pembuatan laporan komprehensif dengan dokumentasi foto dan temuan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2>Galeri Perangkat</h2>
+            <p>Beberapa contoh iPhone yang telah melalui proses inspeksi kami:</p>
+            
+            <div class="device-gallery">
+                <div class="device-card">
+                    <div class="device-img">iPhone 15 Pro</div>
+                    <div class="device-info">
+                        <h4>iPhone 15 Pro</h4>
+                        <p>Kondisi: Sangat Baik</p>
+                        <p>Baterai: 98%</p>
+                    </div>
+                </div>
+                <div class="device-card">
+                    <div class="device-img">iPhone 14</div>
+                    <div class="device-info">
+                        <h4>iPhone 14</h4>
+                        <p>Kondisi: Baik</p>
+                        <p>Baterai: 92%</p>
+                    </div>
+                </div>
+                <div class="device-card">
+                    <div class="device-img">iPhone 13 Pro Max</div>
+                    <div class="device-info">
+                        <h4>iPhone 13 Pro Max</h4>
+                        <p>Kondisi: Sangat Baik</p>
+                        <p>Baterai: 96%</p>
+                    </div>
+                </div>
+                <div class="device-card">
+                    <div class="device-img">iPhone 12</div>
+                    <div class="device-info">
+                        <h4>iPhone 12</h4>
+                        <p>Kondisi: Baik</p>
+                        <p>Baterai: 87%</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Hubungi Kami</h2>
+            <p>Ingin memeriksa iPhone Anda? Hubungi kami untuk konsultasi gratis atau buat janji temu.</p>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nama Lengkap</label>
+                    <input type="text" id="name" placeholder="Masukkan nama lengkap">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Masukkan alamat email">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Nomor Telepon</label>
+                    <input type="tel" id="phone" placeholder="Masukkan nomor telepon">
+                </div>
+                <div class="form-group">
+                    <label for="device">Model iPhone</label>
+                    <select id="device">
+                        <option value="">Pilih model iPhone</option>
+                        <option value="iphone15">iPhone 15 Series</option>
+                        <option value="iphone14">iPhone 14 Series</option>
+                        <option value="iphone13">iPhone 13 Series</option>
+                        <option value="iphone12">iPhone 12 Series</option>
+                        <option value="iphone11">iPhone 11 Series</option>
+                        <option value="iphonex">iPhone X/XR/XS</option>
+                        <option value="iphone8">iPhone 8/8 Plus</option>
+                        <option value="other">Lainnya</option>
+                    </select>
+                </div>
+                <div class="form-group full-width">
+                    <label for="message">Pesan</label>
+                    <textarea id="message" rows="5" placeholder="Jelaskan kebutuhan Anda atau pertanyaan khusus"></textarea>
+                </div>
+                <div class="form-group full-width">
+                    <button type="submit">Kirim Pesan</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Kapinidek</h3>
+                <p>Spesialis inspeksi kualitas iPhone dengan standar tertinggi dan peralatan canggih.</p>
+                <div class="social-links">
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Kontak</h3>
+                <p>Email: info@kapinidek.com</p>
+                <p>Telepon: (021) 1234-5678</p>
+                <p>WhatsApp: +62 812-3456-7890</p>
+            </div>
+            <div class="footer-section">
+                <h3>Lokasi</h3>
+                <p>Jl. Teknologi No. 123</p>
+                <p>Jakarta Selatan, 12560</p>
+                <p>Indonesia</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Kapinidek - IQC iPhone. Semua hak dilindungi.</p>
+        </div>
+    </footer>
+</body>
+</html>
